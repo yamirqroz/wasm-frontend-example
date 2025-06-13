@@ -12,24 +12,17 @@ fn app() -> Html {
 
 #[function_component(WelcomeScreen)]
 fn welcome_screen() -> Html {
-    let show_text = use_state(|| false);
-    let show_press_start = use_state(|| false);
+    let show_content = use_state(|| false);
 
-    // Animación de texto que aparece después de 1 segundo
+    // Animación de aparición del contenido
     {
-        let show_text = show_text.clone();
-        let show_press_start = show_press_start.clone();
+        let show_content = show_content.clone();
         
         use_effect_with((), move |_| {
-            let show_text = show_text.clone();
-            let show_press_start = show_press_start.clone();
+            let show_content = show_content.clone();
             
-            Timeout::new(1000, move || {
-                show_text.set(true);
-            }).forget();
-
-            Timeout::new(3000, move || {
-                show_press_start.set(true);
+            Timeout::new(500, move || {
+                show_content.set(true);
             }).forget();
 
             || {}
@@ -39,25 +32,55 @@ fn welcome_screen() -> Html {
     html! {
         <div class="welcome-screen">
             <div class="stars"></div>
-            <div class="gradient-bg"></div>
             
-            <div class="content">
-                <h1 class={classes!("game-title", (*show_text).then(|| "fade-in"))}>
-                    {"RETRO QUEST"}
-                </h1>
-                
-                <div class={classes!("subtitle", (*show_text).then(|| "slide-up"))}>
-                    {"~ Una Aventura Épica ~"}
-                </div>
-
-                if *show_press_start {
-                    <div class="press-start">
-                        {"PRESIONA START"}
-                    </div>
-                }
+            <Particles />
+            
+            <Snorlax />
+            
+            <div class={classes!("content", (*show_content).then(|| "show"))}>
+                <h1 class="game-title">{"RETRO QUEST"}</h1>
+                <div class="subtitle">{"~ Una Aventura Épica ~"}</div>
+                <div class="press-start">{"PRESIONA START"}</div>
             </div>
+            
+            <div class="retro-border"></div>
+        </div>
+    }
+}
 
-            <div class="pixel-border"></div>
+//#[function_component(Snorlax)]
+/*fn snorlax() -> Html {
+    html! {
+        <div class="snorlax">
+            <div class="snorlax-body">
+                <div class="snorlax-belly"></div>
+                <div class="snorlax-head">
+                    <div class="snorlax-eyes">
+                        <div class="snorlax-eye"></div>
+                        <div class="snorlax-eye"></div>
+                    </div>
+                </div>
+                <div class="snorlax-arms">
+                    <div class="snorlax-arm left"></div>
+                    <div class="snorlax-arm right"></div>
+                </div>
+            </div>
+        </div>
+    }
+}*/
+
+#[function_component(Particles)]
+fn particles() -> Html {
+    html! {
+        <div class="particles">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
+            <div class="particle particle-7"></div>
+            <div class="particle particle-8"></div>
         </div>
     }
 }
