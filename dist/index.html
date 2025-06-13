@@ -4,11 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido</title>
-    <link rel="stylesheet" href="/style-4239d64a6eebb4ae.css" integrity="sha384-kJaUNXxJc26C52pWFiSVJNTg3mAYJsCOGtr9zyevkqrmcQuqMpHoWw1qNG4W0Xli"/>
+    <link rel="stylesheet" href="/style-38de44ee7fb76d89.css" integrity="sha384-r2PbaAL9DlYnkwXf4/V2k1NNQaEI+mDYL8eW2qeVZrX3EWMWSSOOLWwlxB4d3W+R"/>
 
 <link rel="modulepreload" href="/screen-retro-7a03884ec15d6be9.js" crossorigin="anonymous" integrity="sha384-wAtuStVgeBCMX6mRJGkS9on59E8xZXUe2GIxvk0wvhaHD7GVodobtPuB14jFs48q"><link rel="preload" href="/screen-retro-7a03884ec15d6be9_bg.wasm" crossorigin="anonymous" integrity="sha384-1ZoyF9idxA5aI1JHyaNeaF+QP4mKEOz0H/n+i0LDyF2y+JGi9shQyUaggGLFGV23" as="fetch" type="application/wasm"></head>
 <body>
-    <div id="app"></div>
+    <div class="welcome-screen">
+        <div class="stars"></div>
+        
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="snorlax">
+            <div class="snorlax-body">
+                <div class="snorlax-belly"></div>
+                <div class="snorlax-head">
+                    <div class="snorlax-eyes">
+                        <div class="snorlax-eye"></div>
+                        <div class="snorlax-eye"></div>
+                    </div>
+                </div>
+                <div class="snorlax-arms">
+                    <div class="snorlax-arm left"></div>
+                    <div class="snorlax-arm right"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h1 class="game-title">RETRO QUEST</h1>
+            <div class="subtitle">~ Una Aventura Épica ~</div>
+            <div class="press-start">PRESIONA START</div>
+        </div>
+        
+        <div class="retro-border"></div>
+    </div>
 
 <script type="module">
 import init, * as bindings from '/screen-retro-7a03884ec15d6be9.js';
